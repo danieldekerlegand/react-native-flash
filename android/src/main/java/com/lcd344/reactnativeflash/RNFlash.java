@@ -30,7 +30,7 @@ public class RNFlash extends ReactContextBaseJavaModule {
 	public RNFlash(ReactApplicationContext reactContext) {
 		super(reactContext);
 		mReactContext = reactContext;
-		mCamera = getCamera();
+		// mCamera = getCamera();
 	}
 
 
@@ -39,51 +39,51 @@ public class RNFlash extends ReactContextBaseJavaModule {
 		return "RNFlash";
 	}
 
-	private Camera getCamera() {
-		Camera camera;
+	// private Camera getCamera() {
+	// 	Camera camera;
+	//
+	// 	if (mCamera == null) {
+	// 		try {
+	// 			camera = Camera.open();
+	// 			return camera;
+	// 		} catch (RuntimeException e) {
+	// 			Log.e("Camera Error. Failed to Open. Error: ", e.getMessage());
+	// 		}
+	// 	}
+	//
+	// 	return null;
+	// }
+	//
+	// @ReactMethod
+	// public void turnOnFlash() {
+	//
+	// 	Parameters params;
+	//
+	// 	if (mCamera == null || !mReactContext.getApplicationContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)) {
+	// 		return;
+	// 	}
+	//
+	// 	params = mCamera.getParameters();
+	// 	params.setFlashMode(Parameters.FLASH_MODE_TORCH);
+	// 	mCamera.setParameters(params);
+	// 	mCamera.startPreview();
+	// }
 
-		if (mCamera == null) {
-			try {
-				camera = Camera.open();
-				return camera;
-			} catch (RuntimeException e) {
-				Log.e("Camera Error. Failed to Open. Error: ", e.getMessage());
-			}
-		}
-
-		return null;
-	}
-
-	@ReactMethod
-	public void turnOnFlash() {
-
-		Parameters params;
-
-		if (mCamera == null || !mReactContext.getApplicationContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)) {
-			return;
-		}
-
-		params = mCamera.getParameters();
-		params.setFlashMode(Parameters.FLASH_MODE_TORCH);
-		mCamera.setParameters(params);
-		mCamera.startPreview();
-	}
-
-
-	@ReactMethod
-	public void turnOffFlash() {
-
-		Parameters params;
-
-		if (mCamera == null || !mReactContext.getApplicationContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)) {
-			return;
-		}
-
-		params = mCamera.getParameters();
-		params.setFlashMode(Parameters.FLASH_MODE_OFF);
-		mCamera.setParameters(params);
-		mCamera.stopPreview();
-	}
+	// 
+	// @ReactMethod
+	// public void turnOffFlash() {
+	//
+	// 	Parameters params;
+	//
+	// 	if (mCamera == null || !mReactContext.getApplicationContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)) {
+	// 		return;
+	// 	}
+	//
+	// 	params = mCamera.getParameters();
+	// 	params.setFlashMode(Parameters.FLASH_MODE_OFF);
+	// 	mCamera.setParameters(params);
+	// 	mCamera.stopPreview();
+	// }
 
 	@ReactMethod
 	public void hasFlash(Callback successCallback, Callback errorCallback) {
